@@ -1,13 +1,7 @@
-- name: Playbook
-  hosts: webservers
-  become: yes
-  become_user: root
+- name: Ping Test
+  hosts: all
+  gather_facts: false
+  become: false
   tasks:
-    - name: ensure apache is at the latest version
-      yum:
-        name: httpd
-        state: latest
-    - name: ensure apache is running
-      service:
-        name: httpd
-        state: starteds
+    - name: Ping Host
+      action: ping
